@@ -1,0 +1,71 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<h2>Calculator!</h2>
+<h4> Display:</h4>
+<p id='amount'>0</p>
+
+<!-- number buttons -->
+<button onclick="valueSelected(1)"> 1 </button>
+<button onclick="valueSelected(2)"> 2 </button>
+<button onclick="valueSelected(3)"> 3 </button>
+<br>
+<button onclick="valueSelected(4)"> 4 </button>
+<button onclick="valueSelected(5)"> 5 </button>
+<button onclick="valueSelected(6)"> 6 </button>
+<br>
+<button onclick="valueSelected(7)"> 7 </button>
+<button onclick="valueSelected(8)"> 8 </button>
+<button onclick="valueSelected(9)"> 9 </button>
+<br>
+
+<!-- function buttons -->
+<button> + </button>
+<button> - </button>
+<button> / </button>
+<br>
+<button> * </button>
+<button> = </button>
+<br>
+
+
+</body>
+
+<footer>
+<script> 
+var amount = 0
+
+
+function valueSelected(firstEntry){
+	amount = (amount * 10) + firstEntry;
+	console.log(firstEntry);
+	document.getElementById('amount').innerHTML = amount;
+	console.log(amount);
+}
+
+
+//comment
+var password = "word"
+
+
+function functionName(){
+	if(password.length===4){
+		console.log("Happy")
+	}
+	else{
+		console.log("Sad")
+	}
+}
+
+</script>
+</footer>
+
+</html>
+
+
+
+
