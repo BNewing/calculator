@@ -8,6 +8,8 @@
 <h2>Calculator!</h2>
 <h4> Display:</h4>
 <p id='amount'>0</p>
+<p id='mathsOperation'></p>
+<p id='secondAmount'></p>
 
 <!-- number buttons -->
 <button onclick="valueSelected(1)"> 1 </button>
@@ -24,29 +26,49 @@
 <br>
 
 <!-- function buttons -->
-<button> + </button>
-<button> - </button>
-<button> / </button>
+<button id='minus' onclick="operation('minus')"> - </button>
+<button id='add' onclick="operation("add")"> + </button>
+<button id='divide' onclick="operation('divide')"> / </button>
 <br>
-<button> * </button>
-<button> = </button>
+<button id="multiply" onclick="operation('multiply')"> * </button>
+<button id="equals" onclick="operation('equals')"> = </button>
 <br>
 
 
 </body>
 
 <footer>
+
 <script> 
 var amount = 0
-
+var mathsOperation = "0"
+var secondAmount = 0
 
 function valueSelected(firstEntry){
-	amount = (amount * 10) + firstEntry;
-	console.log(firstEntry);
-	document.getElementById('amount').innerHTML = amount;
-	console.log(amount);
+	if(mathsOperation===0){
+		amount = (amount * 10) + firstEntry;
+		document.getElementById('amount').innerHTML = amount;
+		disableOperationsButtons(false);
+	}
+	else{
+		secondNumber = (amount * 10) + firstEntry;
+		document.getElementById('secondNumber').innerHTML = secondNumber;
+		disableOperationsButtons(false);
+	}
 }
 
+function operation(sign){
+	document.getElementById('mathsOperation').innerHTML = sign;
+	disableOperationsButtons(true);
+}
+
+function disableOperationsButtons(disable){
+	document.getElementById('minus').disabled = disable;
+	document.getElementById('add').disabled = disable;
+	document.getElementById('divide').disabled = disable;
+	document.getElementById('multiply').disabled = disable;
+	document.getElementById('equals').disabled = disable;
+}
 
 //comment
 var password = "word"
@@ -65,6 +87,7 @@ function functionName(){
 </footer>
 
 </html>
+
 
 
 
