@@ -41,7 +41,7 @@
 
 <footer>
 
-<script> 
+<script>
 
 //variables
 var amount = 0
@@ -55,20 +55,17 @@ function operation(sign){
 	if(sign==='='){
 		if(mathsOperation==='+'){
 			endValue = amount + secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
 		}
 		else if(mathsOperation==='-'){
 			endValue = amount - secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
 		}
 		else if(mathsOperation==='*'){
 			endValue = amount * secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
 		}
 		else if(mathsOperation==='/'){
 			endValue = amount / secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
 		}
+		document.getElementById('endAmount').innerHTML = endValue
 	}
 	
 	else if(sign==="nothing"){
@@ -125,6 +122,3 @@ function disableNumberButtons(disable){
 </footer>
 
 </html>
-
-
-
