@@ -41,57 +41,57 @@
 
 <footer>
 
-<script> 
+<script>
 
 //variables
-var amount = 0
-var mathsOperation = "nothing"
-var secondAmount = 0
-var endValue = 0
-var equals = "nothing"
+var amount = 0;
+var mathsOperation = "nothing";
+var secondAmount = 0;
+var endValue = 0;
+var equals = "nothing";
 
 //maths operation functions
 function operation(sign){
 	if(sign==='='){
 		if(mathsOperation==='+'){
-			endValue = amount + secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			endValue = amount + secondAmount;
+			document.getElementById('endAmount').innerHTML = endValue;
 		}
 		else if(mathsOperation==='-'){
 			endValue = amount - secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			document.getElementById('endAmount').innerHTML = endValue;
 		}
 		else if(mathsOperation==='*'){
 			endValue = amount * secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			document.getElementById('endAmount').innerHTML = endValue;
 		}
 		else if(mathsOperation==='/'){
-			endValue = amount / secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			endValue = amount / secondAmount;
+			document.getElementById('endAmount').innerHTML = endValue;
 		}
 	}
-	
+
 	else if(sign==="nothing"){
-		document.getElementById('symbol').innerHTMl = "Select a maths operation"
+		document.getElementById('symbol').innerHTMl = "Select a maths operation";
 	}
 	else{
 		mathsOperation = sign
-		document.getElementById('symbol').innerHTML = mathsOperation
-		disableOperationsButtons(true)
+		document.getElementById('symbol').innerHTML = mathsOperation;
+		disableOperationsButtons(true);
 	}
 }
 
 //number input functions
 function valueSelected(firstEntry){
 	if(mathsOperation==="nothing"){
-		amount = (amount * 10) + firstEntry
-		document.getElementById('amount').innerHTML = amount
-		disableOperationsButtons(false)
+		amount = (amount * 10) + firstEntry;
+		document.getElementById('amount').innerHTML = amount;
+		disableOperationsButtons(false);
 	}
 	else if(equals==="nothing"){
 		secondAmount = (secondAmount * 10) + firstEntry;
 		document.getElementById('secondAmount').innerHTML = secondAmount;
-		disableOperationsButtons(false)
+		disableOperationsButtons(false);
 	}
 	else{
 		disableNumberButtons(true);
@@ -125,6 +125,3 @@ function disableNumberButtons(disable){
 </footer>
 
 </html>
-
-
-
