@@ -41,14 +41,14 @@
 
 <footer>
 
-<script> 
+<script>
 
 //variables
 var amount = 0
-var mathsOperation = "nothing"
+var mathsOperation = null
 var secondAmount = 0
 var endValue = 0
-var equals = "nothing"
+var equals = null
 
 //maths operation functions
 function operation(sign){
@@ -71,7 +71,7 @@ function operation(sign){
 		}
 	}
 	
-	else if(sign==="nothing"){
+	else if(!sign){
 		document.getElementById('symbol').innerHTMl = "Select a maths operation"
 	}
 	else{
@@ -83,12 +83,12 @@ function operation(sign){
 
 //number input functions
 function valueSelected(firstEntry){
-	if(mathsOperation==="nothing"){
+	if(!mathsOperation){
 		amount = (amount * 10) + firstEntry
 		document.getElementById('amount').innerHTML = amount
 		disableOperationsButtons(false)
 	}
-	else if(equals==="nothing"){
+	else if(!equals){
 		secondAmount = (secondAmount * 10) + firstEntry;
 		document.getElementById('secondAmount').innerHTML = secondAmount;
 		disableOperationsButtons(false)
@@ -125,6 +125,3 @@ function disableNumberButtons(disable){
 </footer>
 
 </html>
-
-
-
