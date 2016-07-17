@@ -10,28 +10,30 @@
 <p id='amount'>0</p>
 <p id='symbol'></p>
 <p id='secondAmount'></p>
+<p id='equalsSign'></p>
+<p id='endAmount'></p>
 
 <!-- number buttons -->
-<button onclick="valueSelected(1)"> 1 </button>
-<button onclick="valueSelected(2)"> 2 </button>
-<button onclick="valueSelected(3)"> 3 </button>
+<button id='number1' onclick="valueSelected(1)"> 1 </button>
+<button id='number2' onclick="valueSelected(2)"> 2 </button>
+<button id='number3' onclick="valueSelected(3)"> 3 </button>
 <br>
-<button onclick="valueSelected(4)"> 4 </button>
-<button onclick="valueSelected(5)"> 5 </button>
-<button onclick="valueSelected(6)"> 6 </button>
+<button id='number4' onclick="valueSelected(4)"> 4 </button>
+<button id='number5' onclick="valueSelected(5)"> 5 </button>
+<button id='number6' onclick="valueSelected(6)"> 6 </button>
 <br>
-<button onclick="valueSelected(7)"> 7 </button>
-<button onclick="valueSelected(8)"> 8 </button>
-<button onclick="valueSelected(9)"> 9 </button>
+<button id='number7' onclick="valueSelected(7)"> 7 </button>
+<button id='number8' onclick="valueSelected(8)"> 8 </button>
+<button id='number9' onclick="valueSelected(9)"> 9 </button>
 <br>
 
 <!-- function buttons -->
-<button id='minus' onclick="operation('minus')"> - </button>
-<button id='add' onclick="operation('add')"> + </button>
-<button id='divide' onclick="operation('divide')"> / </button>
+<button id='minus' onclick="operation('-')"> - </button>
+<button id='add' onclick="operation('+')"> + </button>
+<button id='divide' onclick="operation('/')"> / </button>
 <br>
-<button id="multiply" onclick="operation('multiply')"> * </button>
-<button id="equals" onclick="operation('equals')"> = </button>
+<button id='multiply' onclick="operation('*')"> * </button>
+<button id='equals' onclick="operation('=')"> = </button>
 <br>
 
 
@@ -40,30 +42,65 @@
 <footer>
 
 <script> 
+
+//variables
 var amount = 0
 var mathsOperation = "nothing"
 var secondAmount = 0
+var endValue = 0
+var equals = "nothing"
 
+//maths operation functions
 function operation(sign){
-	mathsOperation = sign
-	document.getElementById('symbol').innerHTML = mathsOperation;
-	disableOperationsButtons(true);
-}
-
-function valueSelected(firstEntry){
-	if(mathsOperation==="nothing"){
-		amount = (amount * 10) + firstEntry;
-		document.getElementById('amount').innerHTML = amount;
-		disableOperationsButtons(false);
+	if(sign==='='){
+		if(mathsOperation==='+'){
+			endValue = amount + secondAmount
+			document.getElementById('endAmount').innerHTML = endValue
+		}
+		else if(mathsOperation==='-'){
+			endValue = amount - secondAmount
+			document.getElementById('endAmount').innerHTML = endValue
+		}
+		else if(mathsOperation==='*'){
+			endValue = amount * secondAmount
+			document.getElementById('endAmount').innerHTML = endValue
+		}
+		else if(mathsOperation==='/'){
+			endValue = amount / secondAmount
+			document.getElementById('endAmount').innerHTML = endValue
+		}
+	}
+	
+	else if(sign==="nothing"){
+		document.getElementById('symbol').innerHTMl = "Select a maths operation"
 	}
 	else{
+		mathsOperation = sign
+		document.getElementById('symbol').innerHTML = mathsOperation
+		disableOperationsButtons(true)
+	}
+}
+
+//number input functions
+function valueSelected(firstEntry){
+	if(mathsOperation==="nothing"){
+		amount = (amount * 10) + firstEntry
+		document.getElementById('amount').innerHTML = amount
+		disableOperationsButtons(false)
+	}
+	else if(equals==="nothing"){
 		secondAmount = (secondAmount * 10) + firstEntry;
 		document.getElementById('secondAmount').innerHTML = secondAmount;
-		disableOperationsButtons(false);
+		disableOperationsButtons(false)
+	}
+	else{
+		disableNumberButtons(true);
 	}
 }
 
 
+
+//disable maths operation and number buttons functions
 function disableOperationsButtons(disable){
 	document.getElementById('minus').disabled = disable;
 	document.getElementById('add').disabled = disable;
@@ -72,13 +109,22 @@ function disableOperationsButtons(disable){
 	document.getElementById('equals').disabled = disable;
 }
 
+function disableNumberButtons(disable){
+	document.getElementById('number1').disabled = disable;
+	document.getElementById('number2').disabled = disable;
+	document.getElementById('number3').disabled = disable;
+	document.getElementById('number4').disabled = disable;
+	document.getElementById('number5').disabled = disable;
+	document.getElementById('number6').disabled = disable;
+	document.getElementById('number7').disabled = disable;
+	document.getElementById('number8').disabled = disable;
+	document.getElementById('number9').disabled = disable;
+}
 
 </script>
 </footer>
 
 </html>
-
-
 
 
 
