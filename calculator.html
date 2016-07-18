@@ -13,6 +13,7 @@
 <p id='equalsSign'></p>
 <p id='endAmount'></p>
 
+
 <!-- number buttons -->
 <button id='number1' onclick="valueSelected(1)"> 1 </button>
 <button id='number2' onclick="valueSelected(2)"> 2 </button>
@@ -26,15 +27,19 @@
 <button id='number8' onclick="valueSelected(8)"> 8 </button>
 <button id='number9' onclick="valueSelected(9)"> 9 </button>
 <br>
+<button id='number0' onclick="valueSelected(0)"> 0 </button>
+
+
 
 <!-- function buttons -->
 <button id='minus' onclick="operation('-')"> - </button>
 <button id='add' onclick="operation('+')"> + </button>
-<button id='divide' onclick="operation('/')"> / </button>
 <br>
+<button id='divide' onclick="operation('/')"> / </button>
 <button id='multiply' onclick="operation('*')"> * </button>
 <button id='equals' onclick="operation('=')"> = </button>
 <br>
+<button id='clearButton' onclick="clear(0)"> Clear </button>
 
 
 </body>
@@ -45,59 +50,56 @@
 
 //variables
 var amount = 0
-var mathsOperation = "nothing"
-var secondAmount = 0
-var endValue = 0
-var equals = "nothing"
+var mathsOperation = null;
+var secondAmount = 0;
+var endValue = 0;
+var equals = null;
+var resetValue = 0;
 
 //maths operation functions
 function operation(sign){
 	if(sign==='='){
 		if(mathsOperation==='+'){
-			endValue = amount + secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			endValue = amount + secondAmount;
 		}
 		else if(mathsOperation==='-'){
-			endValue = amount - secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			endValue = amount - secondAmount;
 		}
 		else if(mathsOperation==='*'){
-			endValue = amount * secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			endValue = amount * secondAmount;
 		}
 		else if(mathsOperation==='/'){
-			endValue = amount / secondAmount
-			document.getElementById('endAmount').innerHTML = endValue
+			endValue = amount / secondAmount;
 		}
+		document.getElementById('endAmount').innerHTML = endValue;
 	}
 	
-	else if(sign==="nothing"){
-		document.getElementById('symbol').innerHTMl = "Select a maths operation"
+	else if(!sign){
+		document.getElementById('symbol').innerHTMl = "Select a maths operation";
 	}
 	else{
 		mathsOperation = sign
-		document.getElementById('symbol').innerHTML = mathsOperation
-		disableOperationsButtons(true)
+		document.getElementById('symbol').innerHTML = mathsOperation;
+		disableOperationsButtons(true);
 	}
 }
 
 //number input functions
 function valueSelected(firstEntry){
-	if(mathsOperation==="nothing"){
-		amount = (amount * 10) + firstEntry
-		document.getElementById('amount').innerHTML = amount
-		disableOperationsButtons(false)
+	if(!mathsOperation){
+		amount = (amount * 10) + firstEntry;
+		document.getElementById('amount').innerHTML = amount;
+		disableOperationsButtons(false);
 	}
-	else if(equals==="nothing"){
+	else if(!equals){
 		secondAmount = (secondAmount * 10) + firstEntry;
 		document.getElementById('secondAmount').innerHTML = secondAmount;
-		disableOperationsButtons(false)
+		disableOperationsButtons(false);
 	}
 	else{
 		disableNumberButtons(true);
 	}
 }
-
 
 
 //disable maths operation and number buttons functions
