@@ -7,7 +7,7 @@
 
 <h2>Calculator!</h2>
 <h4> Display:</h4>
-<p id='amount'>0</p>
+<p id='amount'>Press any number to start!</p>
 <p id='symbol'></p>
 <p id='secondAmount'></p>
 <p id='equalsSign'></p>
@@ -54,7 +54,6 @@ var mathsOperation = null;
 var secondAmount = 0;
 var endValue = 0;
 var equals = null;
-var resetValue = 0;
 
 //maths operation functions
 function operation(sign){
@@ -102,13 +101,15 @@ function valueSelected(firstEntry){
 	}
 }
 
+// Clear button functions
 function clearCalculator(){
-	var amount = 0;
-	var secondAmount = 0;
-	var mathsOperation = null;
+	amount = 0;
+	secondAmount = 0;
+	mathsOperation = undefined;
 	document.getElementById('amount').innerHTML = null;
 	document.getElementById('symbol').innerHTML = null;
 	document.getElementById('secondAmount').innerHTML = null;
+	document.getElementById('equalsSign').innerHTML = null;
 	document.getElementById('endAmount').innerHTML = null;
 }
 
