@@ -39,7 +39,7 @@
 <button id='multiply' onclick="operation('*')"> * </button>
 <button id='equals' onclick="operation('=')"> = </button>
 <br>
-<button id='clearButton' onclick="clear(0)"> Clear </button>
+<button id='clearButton' onclick="clearCalculator('clear')"> Clear </button>
 
 
 </body>
@@ -49,7 +49,7 @@
 <script> 
 
 //variables
-var amount = 0
+var amount = 0;
 var mathsOperation = null;
 var secondAmount = 0;
 var endValue = 0;
@@ -101,6 +101,16 @@ function valueSelected(firstEntry){
 	}
 }
 
+function clearCalculator(){
+	var amount = 0;
+	var secondAmount = 0;
+	var mathsOperation = null;
+	document.getElementById('amount').innerHTML = null;
+	document.getElementById('symbol').innerHTML = null;
+	document.getElementById('secondAmount').innerHTML = null;
+	document.getElementById('endAmount').innerHTML = null;
+}
+
 
 //disable maths operation and number buttons functions
 function disableOperationsButtons(disable){
@@ -121,6 +131,7 @@ function disableNumberButtons(disable){
 	document.getElementById('number7').disabled = disable;
 	document.getElementById('number8').disabled = disable;
 	document.getElementById('number9').disabled = disable;
+	document.getElementById('number0').disabled = disable;
 }
 
 </script>
