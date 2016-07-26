@@ -39,7 +39,7 @@
 <button id='multiply' onclick="operation('*')"> * </button>
 <button id='equals' onclick="operation('=')"> = </button>
 <br>
-<button id='clearButton' onclick="clearCalculator('clear')"> Clear </button>
+<button id='clearButton' onclick="clearCalculator('null')"> Clear </button>
 
 
 </body>
@@ -59,6 +59,7 @@ var resetValue = 0;
 //maths operation functions
 function operation(sign){
 	if(sign==='='){
+		document.getElementById('equalsSign').innerHTML = "=";
 		if(mathsOperation==='+'){
 			endValue = amount + secondAmount;
 		}
