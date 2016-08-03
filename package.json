@@ -1,0 +1,19 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "<h2>Javascript exercise</h2> <br>\r <h3>Creating a basic calculator to test and build on javascript knowledge!</h3>",
+  "main": "calculatorScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BNewing/calculator.git"
+  },
+  "author": "BNewing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BNewing/calculator/issues"
+  },
+  "homepage": "https://github.com/BNewing/calculator#readme"
+}
