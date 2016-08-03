@@ -4,6 +4,7 @@
   "description": "<h2>Javascript exercise</h2> <br>\r <h3>Creating a basic calculator to test and build on javascript knowledge!</h3>",
   "main": "calculatorScript.js",
   "scripts": {
+    "start": "uglify -s ./calculatorScript.js -o ./calculatorScript.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BNewing/calculator/issues"
   },
-  "homepage": "https://github.com/BNewing/calculator#readme"
+  "homepage": "https://github.com/BNewing/calculator#readme",
+  "dependencies": {
+    "uglify": "^0.1.5"
+  }
 }
